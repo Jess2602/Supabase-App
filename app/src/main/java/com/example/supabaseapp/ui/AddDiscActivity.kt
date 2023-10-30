@@ -26,6 +26,10 @@ class AddDiscActivity : AppCompatActivity() {
         binding = AddDiscActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.addDiscToRecyclerButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 
