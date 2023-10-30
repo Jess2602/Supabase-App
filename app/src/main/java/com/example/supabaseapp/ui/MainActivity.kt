@@ -1,10 +1,12 @@
 package com.example.supabaseapp.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.supabaseapp.R
+import com.example.supabaseapp.databinding.HomeActivityBinding
 import com.example.supabaseapp.databinding.MainActivityBinding
 import kotlinx.serialization.Serializable
 import okhttp3.Call
@@ -16,18 +18,17 @@ import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: MainActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        getData()
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         fetchSupabaseData()
 
-        setContentView(R.layout.main_activity)
-
-        val signInButton = findViewById<Button>(R.id.btnSignIn)
-
-        signInButton.setOnClickListener {
-            setContentView(R.layout.home_activity)
+        binding.btnSignIn.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -59,14 +60,4 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
-
 }
-
-@Serializable
-data class User(
-    val id: Int = 0,
-    val email: String = "",
-    val password: String = ""
-)
-
