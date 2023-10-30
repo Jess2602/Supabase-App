@@ -13,4 +13,8 @@
     <string name="year">Year</string>
     <string name="artist">Artist</string>
     <string name="discimage">discImage</string>
+    <string name="title_activity_add_disc">AddDiscActivity</string>
+    <string name="add_disc">Add disc</string>
+    <string name="disc_year">Disc Year</string>
+    <string name="disc_artist">Disc Artist</string>
 </resources>

@@ -1,17 +1,19 @@
 package com.example.supabaseapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.supabaseapp.databinding.HomeActivityBinding
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: HomeActivityBinding
     private lateinit var adapter: DiscAdapter
@@ -23,6 +25,11 @@ class HomeActivity : AppCompatActivity() {
 
         seeRecycler()
         fetchSupabaseData()
+
+        binding.addDiscButton.setOnClickListener {
+            val intent = Intent(this, AddDiscActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun seeRecycler() {
@@ -33,7 +40,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun fetchSupabaseData() {
         val supabaseUrl = "https://orsdaquwteitkgppthww.supabase.co"
-        val supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yc2RhcXV3dGVpdGtncHB0aHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc5NDYyOTIsImV4cCI6MjAxMzUyMjI5Mn0.zuqYT50yUvFMfcxYxUvSg4NS1bO_hdBifJPsIzP_cYQ"
+        val supabaseKey =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yc2RhcXV3dGVpdGtncHB0aHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc5NDYyOTIsImV4cCI6MjAxMzUyMjI5Mn0.zuqYT50yUvFMfcxYxUvSg4NS1bO_hdBifJPsIzP_cYQ"
 
         val client = OkHttpClient()
         val request = Request.Builder()
