@@ -3,6 +3,7 @@ package com.example.supabaseapp.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.supabaseapp.databinding.AddDiscActivityBinding
 import okhttp3.Call
@@ -31,8 +32,12 @@ class AddDiscActivity : AppCompatActivity() {
             val discName = binding.discNameEditText.text.toString()
             val discYear = binding.discYearEditText.text.toString()
             val discArtist = binding.discArtistEditText.text.toString()
+            if (discName.isNotEmpty() && discYear.isNotEmpty() && discArtist.isNotEmpty()) {
+                addDataToSupabase(discName, discYear, discArtist)
+            } else {
+                Toast.makeText(applicationContext, "Faltan Campos por Rellenar", Toast.LENGTH_SHORT).show()
+            }
 
-            addDataToSupabase(discName, discYear, discArtist)
 
 
         }
