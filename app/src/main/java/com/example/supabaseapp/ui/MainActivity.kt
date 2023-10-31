@@ -12,7 +12,7 @@ import com.example.supabaseapp.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val splashDisplayLength = 3000 // 2 seconds
+    private val splashDisplayLength = 800 // 2 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

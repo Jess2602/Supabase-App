@@ -9,13 +9,8 @@ import com.example.supabaseapp.databinding.AddDiscActivityBinding
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.IOException
 
@@ -37,9 +32,11 @@ class AddDiscActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, "Faltan Campos por Rellenar", Toast.LENGTH_SHORT).show()
             }
+        }
 
-
-
+        binding.backArrow.setOnClickListener {
+            val intent = Intent(this@AddDiscActivity, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 

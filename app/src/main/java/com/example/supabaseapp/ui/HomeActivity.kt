@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.supabaseapp.databinding.HomeActivityBinding
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
@@ -25,7 +25,6 @@ class HomeActivity : AppCompatActivity() {
 
         seeRecycler()
         fetchSupabaseData()
-
         binding.addDiscButton.setOnClickListener {
             val intent = Intent(this, AddDiscActivity::class.java)
             startActivity(intent)

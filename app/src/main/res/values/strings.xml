@@ -17,4 +17,5 @@
     <string name="add_disc">Add disc</string>
     <string name="disc_year">Disc Year</string>
     <string name="disc_artist">Disc Artist</string>
+    <string name="Title_discs">Discs</string>
 </resources>
